@@ -1,0 +1,31 @@
+---
+layout: default
+title: Legal
+---
+<h1>Legal</h1>
+<p class="lead">{{ site.description }}</p>
+
+{% comment %}
+  Every page with an `app:` value in its front matter is listed here automatically,
+  grouped by app. To add an app, add a folder with Markdown files — no edits needed here.
+{% endcomment %}
+{% assign docs = site.pages | where_exp: "p", "p.app" | group_by: "app" | sort: "name" %}
+
+{% if docs.size == 0 %}
+  <p>No documents yet.</p>
+{% endif %}
+
+{% for group in docs %}
+<section class="app" id="{{ group.name | slugify }}">
+  <h2>{{ group.name }}</h2>
+  <ul>
+    {% assign items = group.items | sort: "url" %}
+    {% for doc in items %}
+    <li>
+      <a href="{{ doc.url | relative_url }}">{{ doc.title }}</a>{% if doc.lang %} <span class="meta">{{ doc.lang | upcase }}</span>{% endif %}
+      {% if doc.last_updated %}<span class="meta">Updated {{ doc.last_updated | date: "%b %-d, %Y" }}</span>{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endfor %}

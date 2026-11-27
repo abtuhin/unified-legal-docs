@@ -1,0 +1,27 @@
+# ---------------------------------------------------------------------------
+# Site settings
+# ---------------------------------------------------------------------------
+title: Legal
+description: Privacy policies and terms of service for our apps.
+
+# Shared values you can use inside any page as {{ site.owner }} etc.
+owner: "Abdullah Al Mosabbir"
+contact_email: "tuhin9pro@gmail.com"
+jurisdiction: "Germany"
+
+# URL settings
+# - Project repo (https://USERNAME.github.io/legal-notes/): baseurl "/legal-notes"
+# - User repo (USERNAME.github.io) or a custom domain:      baseurl ""
+url: "https://abtuhin.github.io"
+baseurl: "/legal-notes"
+
+# ---------------------------------------------------------------------------
+# Build settings (you normally don't need to touch these)
+# ---------------------------------------------------------------------------
+permalink: pretty          # /example-app/privacy/ instead of /example-app/privacy.html
+markdown: kramdown
+exclude: [README.md, Gemfile, Gemfile.lock, vendor]
+
+defaults:
+  - scope: { path: "" }
+    values: { layout: doc }

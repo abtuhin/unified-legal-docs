@@ -1,0 +1,28 @@
+---
+layout: default
+---
+<article class="doc">
+  {% if page.app %}
+  <p class="eyebrow"><a href="{{ '/' | relative_url }}#{{ page.app | slugify }}">{{ page.app }}</a></p>
+  {% endif %}
+  <h1>{{ page.title }}</h1>
+  {% if page.last_updated %}
+  <p class="meta">{% if page.lang == "de" %}Stand: {{ page.last_updated | date: "%d.%m.%Y" }}{% else %}Last updated: {{ page.last_updated | date: "%B %-d, %Y" }}{% endif %}</p>
+  {% endif %}
+
+  {{ content }}
+</article>
+
+{% if page.app %}
+  {% assign siblings = site.pages | where: "app", page.app %}
+  {% if page.lang %}{% assign siblings = siblings | where: "lang", page.lang %}{% endif %}
+  {% assign siblings = siblings | sort: "title" %}
+  {% if siblings.size > 1 %}
+  <nav class="related" aria-label="Other documents for {{ page.app }}">
+    <span>{% if page.lang == "de" %}Mehr zu {{ page.app }}:{% else %}More from {{ page.app }}:{% endif %}</span>
+    {% for doc in siblings %}{% unless doc.url == page.url %}
+      <a href="{{ doc.url | relative_url }}">{{ doc.title }}</a>
+    {% endunless %}{% endfor %}
+  </nav>
+  {% endif %}
+{% endif %}
