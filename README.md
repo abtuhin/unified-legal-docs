@@ -15,7 +15,7 @@ einburgerung/         Einbürgerung app (German is the binding version, English 
   en/…               -> /einburgerung/en/…
 ```
 
-The Einbürgerung app links to `https://abtuhin.github.io/legal-notes/einburgerung/{de|en}/{privacy|terms|imprint}/`
+The Einbürgerung app links to `https://abtuhin.github.io/unified-legal-docs/einburgerung/{de|en}/{privacy|terms|imprint}/`
 (`LEGAL_BASE_URL` in the app's `src/features/settings/legal.ts`). Don't rename these paths without updating the app.
 
 ## Add a new app
@@ -41,25 +41,25 @@ Inside any document you can use `{{ site.owner }}`, `{{ site.contact_email }}`,
 
 ## Publish on GitHub Pages (one-time setup)
 
-1. Create a **public** repository on GitHub named `legal-notes`. GitHub Pages is
+1. Create a **public** repository on GitHub named `unified-legal-docs`. GitHub Pages is
    free for public repos.
 2. In `_config.yml`, set `url` to `https://<your-username>.github.io`. Keep
-   `baseurl: "/legal-notes"`, or change it if you named the repo differently.
+   `baseurl: "/unified-legal-docs"`, or change it if you named the repo differently.
 3. Push this folder:
    ```sh
    git init -b main
    git add .
    git commit -m "Initial legal pages"
-   git remote add origin https://github.com/<your-username>/legal-notes.git
+   git remote add origin https://github.com/<your-username>/unified-legal-docs.git
    git push -u origin main
    ```
 4. On GitHub, open the repo, go to **Settings → Pages**, and under **Build and
    deployment** set *Source* to **Deploy from a branch**, *Branch* to `main`,
    folder `/ (root)`. Save.
 5. After a minute or two the site is live at
-   `https://<your-username>.github.io/legal-notes/`, and the links for each app are:
-   - `https://abtuhin.github.io/legal-notes/einburgerung/de/privacy/`
-   - `https://abtuhin.github.io/legal-notes/einburgerung/en/privacy/`
+   `https://<your-username>.github.io/unified-legal-docs/`, and the links for each app are:
+   - `https://abtuhin.github.io/unified-legal-docs/einburgerung/de/privacy/`
+   - `https://abtuhin.github.io/unified-legal-docs/einburgerung/en/privacy/`
 
    Paste these into App Store Connect, the Google Play Console, and so on.
 
@@ -74,5 +74,5 @@ set `url: "https://legal.example.com"` and `baseurl: ""`.
 ```sh
 bundle install
 bundle exec jekyll serve
-# open http://localhost:4000/legal-notes/
+# open http://localhost:4000/unified-legal-docs/
 ```

@@ -10,10 +10,10 @@ contact_email: "tuhin9pro@gmail.com"
 jurisdiction: "Germany"
 
 # URL settings
-# - Project repo (https://USERNAME.github.io/legal-notes/): baseurl "/legal-notes"
+# - Project repo (https://USERNAME.github.io/unified-legal-docs/): baseurl "/unified-legal-docs"
 # - User repo (USERNAME.github.io) or a custom domain:      baseurl ""
 url: "https://abtuhin.github.io"
-baseurl: "/legal-notes"
+baseurl: "/unified-legal-docs"
 
 # ---------------------------------------------------------------------------
 # Build settings (you normally don't need to touch these)
